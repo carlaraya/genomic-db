@@ -5,9 +5,14 @@ RUN apk update && apk add build-base nodejs postgresql-dev tzdata yarn
 RUN mkdir /project
 WORKDIR /project
 
+COPY package.json yarn.lock postcss.config.js babel.config.js ./
+RUN yarn install
+
+
 COPY Gemfile Gemfile.lock ./
 RUN gem install bundler
 RUN bundle install
+
 
 COPY . .
 
