@@ -13,11 +13,11 @@ services:
   web:
     depends_on:
       - 'db'
-    build: .
+    build: ./web-app
     ports:
       - '3000:3000'
     volumes:
-      - '.:/project'
+      - './web-app:/project'
     environment:
       - RUBYOPT=-W:no-deprecated -W:no-experimental
     env_file:
