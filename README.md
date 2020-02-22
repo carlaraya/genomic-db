@@ -11,7 +11,7 @@
 
 ## Todo
 1. [DONE] Read up on jbuilder
-1. Install semantic ui and add html code from old repo
+1. [DONE] Install semantic ui and add html code from old repo
 1. Add attachment to dataset model that saves to local storage
 1. Add rspec tests
 1. Search how to do cron jobs in rails or nodejs
