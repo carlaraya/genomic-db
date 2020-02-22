@@ -12,6 +12,18 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="ui main container">
+      <div class="ui stackable menu">
+        <%= link_to root_path, class: 'item' do %>
+          <div class="ui medium header">Genomic Database</div>
+        <% end %>
+        <%= link_to 'Datasets list', datasets_path, class: 'item' %>
+        <%= link_to 'Upload Dataset', new_dataset_path, class: 'item' %>
+      </div>
+      <% if notice %>
+        <div class="ui info message"><%= notice %></div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>

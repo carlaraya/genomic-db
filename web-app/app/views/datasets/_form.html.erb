@@ -1,6 +1,6 @@
-<%= form_with(model: dataset, local: true) do |form| %>
+<%= form_with(model: dataset, local: true, class: 'ui form') do |form| %>
   <% if dataset.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="ui error message">
       <h2><%= pluralize(dataset.errors.count, "error") %> prohibited this dataset from being saved:</h2>
 
       <ul>
@@ -32,6 +32,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'ui green button' %>
   </div>
 <% end %>
