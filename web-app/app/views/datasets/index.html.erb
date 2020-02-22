@@ -1,6 +1,6 @@
 <div class="ui huge header">Datasets</div>
 
-<%= link_to 'New Dataset', new_dataset_path, class: 'ui green button' %>
+<%= link_to 'Upload a new dataset', new_dataset_path, class: 'ui green button' %>
 
 <% @datasets.each.with_index do |dataset, index| %>
   <%= link_to dataset do %>
