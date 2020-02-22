@@ -2,7 +2,6 @@
   <% if dataset.errors.any? %>
     <div id="error_explanation" class="ui error message">
       <div class="ui header"><%= pluralize(dataset.errors.count, "error") %> prohibited this dataset from being saved:</div>
-
       <ul>
         <% dataset.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -29,6 +28,11 @@
   <div class="field">
     <%= form.label :institute %>
     <%= form.text_field :institute %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data_files %>
+    <%= form.file_field :data_files, multiple: true %>
   </div>
 
   <div class="actions">

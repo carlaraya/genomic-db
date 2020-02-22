@@ -11,6 +11,22 @@
   <strong>Institute:</strong>
   <%= @dataset.institute %>
 </p>
+
+<div class="ui segment">
+  <% if @dataset.data_files.attached? %>
+    <div class="ui header">Files</div>
+    <ol>
+      <% @dataset.data_files.each.with_index do |data_file, index| %>
+        <li>
+          <%= link_to data_file.filename, url_for(data_file) %>
+        </li>
+      <% end %>
+    </ol>
+  <% else %>
+    No files yet. If you are the owner, please upload one.
+  <% end %>
+</div>
+
 <p>
   Created at <%= @dataset.created_at %>
   <br>

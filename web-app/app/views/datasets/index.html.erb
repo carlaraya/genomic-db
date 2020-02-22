@@ -10,6 +10,18 @@
           <%= (index + 1).to_s() + '. ' + dataset.name %>
         </div>
         <div class="description-truncated"><%= dataset.description %></div>
+        <% if dataset.data_files.attached? %>
+          <%= pluralize(dataset.data_files.count, 'file') %>
+          <ul>
+            <% dataset.data_files.each do |data_file| %>
+              <li>
+                <%= data_file.filename %>
+              </li>
+            <% end %>
+          </ul>
+        <% else %>
+          No files yet.
+        <% end %>
       </div>
       <div class="ui column">
         <p>

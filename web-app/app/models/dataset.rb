@@ -3,4 +3,6 @@ class Dataset < ApplicationRecord
   validates :description, length: { maximum: 1000 }
   validates :uploader, length: { in: 3..100 }
   validates :institute, length: { in: 3..100 }
+
+  has_many_attached :data_files
 end
