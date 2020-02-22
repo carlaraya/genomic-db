@@ -10,7 +10,7 @@
 1. Start the server: `$ docker-compose up`
 
 ## Todo
-1. Read up on jbuilder
+1. [DONE] Read up on jbuilder
 1. Install semantic ui and add html code from old repo
 1. Add attachment to dataset model that saves to local storage
 1. Add rspec tests
