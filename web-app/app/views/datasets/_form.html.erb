@@ -37,6 +37,9 @@
     <ol>
       <% @dataset.data_files.each.with_index do |data_file, index| %>
         <li>
+          <!-- IMPORTANT! these hidden fields are to make sure existing files don't get purged on edit -->
+          <%= form.hidden_field :data_files, multiple: true, value: data_file.signed_id %>
+
           <%= link_to data_file.filename, url_for(data_file) %>
           <%= link_to destroy_data_file_path(@dataset, data_file), method: :delete, data: { confirm: 'Are you sure?' } do %>
             <i class="trash alternate icon"></i>

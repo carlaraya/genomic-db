@@ -1,10 +1,11 @@
 class DatasetsController < ApplicationController
-  before_action :set_dataset, only: [:show, :edit, :update, :destroy, :destroy_data_file]
+ before_action :set_dataset_with_data_files, only: [:show, :edit]
+ before_action :set_dataset, only: [:update, :destroy, :destroy_data_file]
 
   # GET /datasets
   # GET /datasets.json
   def index
-    @datasets = Dataset.all
+    @datasets = Dataset.with_attached_data_files
   end
 
   # GET /datasets/1
@@ -75,6 +76,10 @@ class DatasetsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_dataset
       @dataset = Dataset.find(params[:id])
+    end
+
+    def set_dataset_with_data_files
+      @dataset = Dataset.where(id: params[:id]).with_attached_data_files.first
     end
 
     # Only allow a list of trusted parameters through.

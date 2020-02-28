@@ -16,7 +16,8 @@
 1. [DONE] Read up on Active Storage, particularly direct upload. Find out a way to save the files as-is. (edit: there is no way)
 1. [IN PROGRESS] Add attachment to dataset model that saves to local storage
     1. [DONE] Add delete attachment feature
-    1. [IN PROGRESS] When data files are uploaded, do NOT replace data files already there
+    1. [DONE] When data files are uploaded, do NOT replace data files already there
+    1. [DONE] [NON-URGENT] Fix N+1 problem on active storage
     1. [IN PROGRESS] [NON-URGENT] Fix mimetype problem (check email & github)
     1. [IN PROGRESS] [NON-URGENT] Add validation
 1. Add rspec tests
