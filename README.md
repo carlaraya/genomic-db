@@ -1,4 +1,4 @@
-# Todo
+# Genomic Database
 
 ## How to setup
 1. Install docker: https://github.com/carlaraya/docker-instructions
