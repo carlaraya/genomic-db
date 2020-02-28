@@ -30,8 +30,26 @@
     <%= form.text_field :institute %>
   </div>
 
+
+  <div class="ui tiny header">Attached Data Files</div>
+
+  <% if @dataset.data_files.attached? %>
+    <ol>
+      <% @dataset.data_files.each.with_index do |data_file, index| %>
+        <li>
+          <%= link_to data_file.filename, url_for(data_file) %>
+          <%= link_to destroy_data_file_path(@dataset, data_file), method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="trash alternate icon"></i>
+          <% end %>
+        </li>
+      <% end %>
+    </ol>
+  <% else %>
+    <p>None.</p>
+  <% end %>
+
   <div class="field">
-    <%= form.label :data_files %>
+    <%= form.label :data_files, 'Upload Data File(s)' %>
     <%= form.file_field :data_files, multiple: true, direct_upload: true %>
   </div>
 

@@ -1,5 +1,5 @@
 class DatasetsController < ApplicationController
-  before_action :set_dataset, only: [:show, :edit, :update, :destroy]
+  before_action :set_dataset, only: [:show, :edit, :update, :destroy, :destroy_data_file]
 
   # GET /datasets
   # GET /datasets.json
@@ -57,6 +57,16 @@ class DatasetsController < ApplicationController
     @dataset.destroy
     respond_to do |format|
       format.html { redirect_to datasets_url, notice: 'Dataset was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def destroy_data_file
+    @data_file = ActiveStorage::Attachment.find(params[:data_file_id])
+    @data_file.purge
+    # To get the dataset associated with data_file: @data_file.record
+    respond_to do |format|
+      format.html { redirect_to edit_dataset_path(@dataset), notice: 'Data file was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
